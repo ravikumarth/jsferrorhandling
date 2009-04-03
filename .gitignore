@@ -48,3 +48,9 @@ target/war/work/webapp-cache.xml
 .project
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.maven.ide.eclipse.prefs
+.settings/.jsdtscope
+.settings/org.eclipse.wst.common.component
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
+src/main/webapp/META-INF/MANIFEST.MF
