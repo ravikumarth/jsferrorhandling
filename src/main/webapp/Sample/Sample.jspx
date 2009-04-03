@@ -1,0 +1,29 @@
+<f:view
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ice="http://www.icesoft.com/icefaces/component"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+   <html>
+   <head>
+   <title>Sample JSF Exception Handler With AOP</title>
+   </head>
+   <body>
+   <ice:form>
+      <ice:panelGroup>
+         <ice:outputLabel for="sampleInputText" />
+         <ice:inputText
+            id="sampleInputText"
+            value="#{SamplePage.sampleInputText}"
+         />
+         <br />
+         <ice:commandButton
+            value="Submit"
+            actionListener="#{SamplePage.processSubmitAction}"
+            action="#{SamplePage.processNavigationSubmitAction}"
+         />
+      </ice:panelGroup>
+   </ice:form>
+   </body>
+   </html>
+</f:view>

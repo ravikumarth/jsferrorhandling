@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+   version="2.4"
+   xmlns="http://java.sun.com/xml/ns/j2ee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+>
+   <!-- Facelet Config  -->
+   <context-param>
+      <param-name>facelets.DEVELOPMENT</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>com.icesoft.faces.synchronousUpdate</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <!-- End of Facelet Config  -->
+   <context-param>
+      <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+      <param-value>server</param-value>
+   </context-param>
+   <context-param>
+      <param-name>javax.faces.CONFIG_FILES</param-name>
+      <param-value>/WEB-INF/managed-beans.xml,/WEB-INF/navigation.xml</param-value>
+   </context-param>
+   <context-param>
+      <param-name>com.sun.faces.validateXml</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>com.sun.faces.verifyObjects</param-name>
+      <param-value>false</param-value>
+   </context-param>
+   <context-param>
+      <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+      <param-value>.jspx</param-value>
+   </context-param>
+   <context-param>
+      <param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>com.icesoft.faces.concurrentDOMViews</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <context-param>
+      <param-name>com.icesoft.faces.compressResources</param-name>
+      <param-value>true</param-value>
+   </context-param>
+   <listener>
+      <listener-class>
+         com.icesoft.faces.util.event.servlet.ContextEventRepeater</listener-class>
+   </listener>
+   <servlet>
+      <servlet-name>Faces Servlet</servlet-name>
+      <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet>
+      <servlet-name>Persistent Faces Servlet</servlet-name>
+      <servlet-class>
+         com.icesoft.faces.webapp.xmlhttp.PersistentFacesServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet>
+      <servlet-name>Blocking Servlet</servlet-name>
+      <servlet-class>com.icesoft.faces.webapp.xmlhttp.BlockingServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>Persistent Faces Servlet</servlet-name>
+      <url-pattern>/faces/*</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>Persistent Faces Servlet</servlet-name>
+      <url-pattern>/xmlhttp/*</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>Persistent Faces Servlet</servlet-name>
+      <url-pattern>*.iface</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+      <servlet-name>Blocking Servlet</servlet-name>
+      <url-pattern>/block/*</url-pattern>
+   </servlet-mapping>
+   
+   <!-- Page Config -->
+   <welcome-file-list>
+      <welcome-file>Index.jsp</welcome-file>
+   </welcome-file-list>
+   <error-page>
+      <exception-type>java.lang.Exception</exception-type>
+      <location>/Error/Error.iface</location>
+   </error-page>
+
+   <!-- set global http session timeout to 20 minutes -->
+   <session-config>
+      <session-timeout>20</session-timeout>
+   </session-config>
+</web-app>
